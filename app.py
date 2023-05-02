@@ -2,9 +2,13 @@ import openai
 from flask import Flask, render_template, jsonify, request, Markup
 from model import predict_image
 import utils
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-openai.api_key = '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'
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 @app.route('/', methods=['GET'])
