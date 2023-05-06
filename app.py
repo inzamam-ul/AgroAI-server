@@ -24,7 +24,7 @@ def chat():
         engine='davinci', prompt=message, max_tokens=1024, n=1, stop=None, temperature=0.5
     )
 
-    return jsonify({'message': response.choices[0].text.strip()})
+    return jsonify(response)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
